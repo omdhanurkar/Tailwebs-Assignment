@@ -2,18 +2,9 @@ const mongoose = require('mongoose')
 
 const teacherSchema = new mongoose.Schema({
 
-    firstName: {
+    name: {
         type: String,
         required: true
-    },
-    lastName: {
-        type: String,
-        required: true
-    },
-    phone: {
-        type: String,
-        required: true,
-        unique: true
     },
     email: {
         type: String,
@@ -24,8 +15,6 @@ const teacherSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-
-
 }, { timestamps: true })
 
 module.exports = mongoose.model('teacher', teacherSchema)

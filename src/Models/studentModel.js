@@ -15,7 +15,6 @@ const studentSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    deletedAt : Date,
     isDeleted: {
         type: Boolean,
         default: false
@@ -27,7 +26,6 @@ const studentSchema = new mongoose.Schema({
     }
 
 }, { timestamps: true })
-
 
 
 module.exports = mongoose.model('student', studentSchema)

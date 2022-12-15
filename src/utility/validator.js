@@ -42,5 +42,4 @@ module.exports = {
     isValidRequestBody,
     isValidObjectId,
     isvalidNumber
-
 }

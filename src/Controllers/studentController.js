@@ -1,7 +1,9 @@
 const studentModel = require('../Models/studentModel')
 const teacherModel = require('../Models/teacherModel')
 const check = require("../utility/validator")
-  
+
+
+//=================================================================================================================================================
 const createStudents = async function (req, res) {
     try {
         let data = req.body
@@ -39,7 +41,7 @@ const createStudents = async function (req, res) {
     }
 }
 
-
+//=================================================================================================================================================
 const getStudent = async function (req, res) {
 
     try {
@@ -62,7 +64,7 @@ const getStudent = async function (req, res) {
     }
 }
 
-
+//=================================================================================================================================================
 
 const updateStudent = async function (req, res) {
     try {
@@ -73,7 +75,6 @@ const updateStudent = async function (req, res) {
         if (!check.isValidObjectId(studentId)) { return res.status(400).send({ status: false, message: "studetId should be valid" }) };
 
         let studentExist = await studentModel.findById(studentId)
-        console.log(studentExist.teacherId.toString())
 
         if (!studentExist) {
             return res.status(404).send({ status: false, message: "student not found" })
@@ -95,7 +96,7 @@ const updateStudent = async function (req, res) {
     }
 }
 
-
+//=================================================================================================================================================
 
 const deleteStudent = async function (req, res) {
     try {
@@ -104,7 +105,7 @@ const deleteStudent = async function (req, res) {
 
         const student = await studentModel.findOne({ _id: studentId }, { isDeleted: false })
         if (!student)
-            return res.status(400).send({ status: false, message: "student deleted alresdy" })
+            return res.status(400).send({ status: false, message: "student deleted already" })
 
         if (student.teacherId != teacherId) {
             return res.status(404).send({ status: false, message: "teacher not authorized" })

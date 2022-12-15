@@ -3,6 +3,8 @@ const check = require("../utility/validator")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt");
 
+//=================================================================================================================================================
+
 const createTeachers = async function (req, res) {
     try {
         const data = req.body
@@ -31,6 +33,7 @@ const createTeachers = async function (req, res) {
 
 }
 
+//=================================================================================================================================================
 
 const teacherLogin = async function (req, res) {
     

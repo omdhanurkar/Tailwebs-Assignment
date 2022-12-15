@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken')
-const mongoose = require('mongoose')
 const teacherModel = require('../Models/teacherModel')
 
 
@@ -26,9 +25,7 @@ const authentication = async function (req, res, next) {
         return res.status(500).send({ status: false, Error: error.message })
     }
 }
-
-
-
+//=================================================================================================================================================
 const authorisation = async function (req, res, next) {
     try {
         let teacherId = req.decodedToken.teacherId
